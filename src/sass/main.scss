@@ -1,0 +1,94 @@
+@import "topBar";
+@import "bookmark";
+@import "searchResults";
+@import "recipeView";
+@import "modalForm";
+@import "spinner";
+
+$main-brand-color: #ffe8cc;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Bricolage Grotesque", sans-serif;
+  transition: all 0.5s;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fff;
+}
+
+.app-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px;
+  width: 92%;
+  height: calc(100vh - 6rem);
+  padding: 1.4rem;
+  margin: 3rem auto;
+  background-color: $main-brand-color;
+  border-radius: 5px;
+}
+
+
+@media (max-width:1290px) {
+  :root {
+    font-size: 60%;
+  }
+}
+@media (max-width:1240px) {
+  :root {
+    font-size: 57%;
+  }
+}
+
+@media (max-width:1180px) {
+  :root {
+    font-size: 55%;
+  }
+}
+
+@media (max-width:1140px) {
+  :root {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 775px) {
+  :root {
+    font-size: 48%;
+  }
+}
+
+@media (max-width: 668px) {
+  :root {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    gap:0rem;
+    height: auto;
+  }
+}
+@media (max-width: 430px) {
+  :root {
+    font-size: 40%;
+  }
+}
+
+
+

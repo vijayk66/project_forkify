@@ -1,0 +1,167 @@
+@use "helper";
+
+.modal-recipe {
+  @include helper.display($display: flex, $direction: column, $gap: 2rem);
+  width: 60%;
+  padding: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: helper.$main-brand-color;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 5px;
+  z-index: 1000;
+  transition: all 0.5s;
+
+  .modal-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: helper.$main-black-color;
+  }
+
+  .modal-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+     
+    .recipe-data,
+    .ingredients {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+    }
+
+    .recipe-heading,
+    .ingredients-heading {
+      grid-area: 1/1/2/3;
+      text-align: center;
+      background: helper.$linear-bg;
+      border-radius: 5px;
+      font-size: 1.8rem;
+      padding: 0.5rem;
+      color: #fff;
+      font-weight: normal;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      border: none;
+      font-size: 1.5rem;
+      padding: 1rem;
+      border-radius: 5px;
+      color: #393737;
+      &:focus {
+        padding-left: 20%;
+        outline: none;
+      }
+      &::placeholder {
+        color: #9e9a9a;
+        font-size: 1.5rem;
+      }
+    }
+    label {
+      font-size: 1.5rem;
+      padding-left: 0.5rem;
+      color: helper.$main-black-color;
+    }
+
+    .upload-btn {
+      grid-area: 2/1/3/3;
+      width: 20%;
+      margin: 2rem auto;
+      text-align: center;
+      background-color: #feb15f;
+      font-size: 1.8rem;
+      padding: 1rem;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      align-self: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f69957;
+        transform: scale(1.09);
+      }
+    }
+
+    .instructions {
+      grid-area: 3/1/4/3;
+      @include helper.display($display: flex, $justify: space-around, $align: center);
+      background-color: #ffe066;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-radius:5px;
+    }
+
+    .success-msg {
+      @include helper.display($display: flex, $justify: center, $align: center);
+      position: absolute;
+      width: 40rem;
+      height: 15rem;
+      top: 30%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      transform: scale(0);
+      height: 0px;
+      padding: 0rem 5rem;
+
+      p {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #f39140;
+        display: none;
+      }
+    }
+
+    .show-success {
+      transform: scale(1);
+      height: 15rem;
+    }
+  }
+
+  @media (max-width: 510px) {
+    .modal-form {
+      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+}
+
+.show-modal {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #5756566f;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+// media queries
+
+@media (max-width: 850px) {
+  .modal-recipe {
+    width:90%
+  }
+}

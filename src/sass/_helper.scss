@@ -1,0 +1,14 @@
+$main-brand-color: #ffe8cc;
+$main-black-color: #5a5e63;
+$secondary-block: #64686c;
+$linear-bg: linear-gradient(-33deg, #f8b87c, #f5a651);
+$main-border-radius: 50px;
+$secondary-border-radius: 5px;
+
+@mixin display($display: flex, $justify: flex-start, $align: stretch,$direction:row, $gap:0px) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap:$gap
+}

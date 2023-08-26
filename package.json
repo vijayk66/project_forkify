@@ -1,0 +1,29 @@
+{
+  "name": "myforkify",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.32.1",
+    "git-filter-repo": "^0.0.30",
+    "parcel": "^2.9.3",
+    "regenerator-runtime": "^0.14.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayk66/project_recipefy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vijayk66/project_recipefy/issues"
+  },
+  "homepage": "https://github.com/vijayk66/project_recipefy#readme",
+  "description": ""
+}

@@ -1,0 +1,111 @@
+@use "helper";
+
+.bookmarks-container {
+  @include helper.display($display: flex, $direction: column, $gap: 1.5rem);
+  width: 30rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 2rem;
+  background-color: #ffe8cc;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 10px;
+  border-bottom: 4px solid #f39140;
+  height: 0rem;
+  transform: scale(0);
+  transition: all 1s;
+  overflow-y: scroll;
+  z-index: 200;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bookmark-btns {
+    @include helper.display($display: flex, $justify: flex-end, $gap: 2rem);
+    & button {
+      padding: 0.3rem 0.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .delete-bookmark {
+      color: #ffffff;
+      background-color: #f48383;
+      display: none;
+    }
+    .close-bookmark {
+      color: helper.$main-black-color;
+      background-color: #ffd43b;
+    }
+  }
+
+  .bookmarked-items {
+    @include helper.display($display: flex, $direction: column, $gap: 1.2rem);
+    .bookmark-item {
+      display: flex;
+      height: 8rem;
+      border-radius: 5px;
+      background-color: #fbf8f8;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(0.91);
+      }
+
+      img {
+        max-width: 40%;
+        border-radius: 5px;
+        object-fit: cover;
+      }
+
+      .bookmark-content {
+        flex: 1;
+        @include helper.display(
+          $display: flex,
+          $justify: center,
+          $direction: column,
+          $gap: 0.5rem
+        );
+        padding: 1rem;
+        position: relative;
+        overflow: hidden;
+
+        h2 {
+          color: helper.$main-black-color;
+          font-size: 1.2rem;
+          padding-right: 0.5rem;
+        }
+        p {
+          font-size: 1.1rem;
+        }
+        i {
+          color: #ffffff;
+          border: 1px solid #ffd700;
+          padding: 0.5rem;
+          border-radius: 50px;
+          align-self: flex-end;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 0.5rem;
+          background: #f39140;
+          color: #fff;
+        }
+      }
+    }
+    .no-bookmark {
+      font-size: 1.8rem;
+      padding-top: 50%;
+      color: helper.$main-black-color;
+      text-align: center;
+    }
+  }
+}
+
+.show {
+  transform: scale(1);
+  height: 40rem;
+}

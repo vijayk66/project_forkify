@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipefy || Search Your Recipe Now</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./src/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome -->
+    <script
+      defer
+      src="https://kit.fontawesome.com/3b6452f24d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="./src/sass/main.scss" />
+    <script defer type="module" src="./src/js/controller.js"></script>
+  </head>
+
+  <body>
+    <div class="app-container">
+      <div class="top-bar">
+        <img src="./src/img/logo.png" alt="logo" class="logo" />
+
+        <form class="search-recipe">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="I love to search recipes 😋..."
+          />
+          <button class="search-btn">
+            Search
+            <i class="fa-solid fa-utensils" style="color: #ffffffe7"></i>
+          </button>
+        </form>
+
+        <div class="save-recipe">
+          <button href="" class="add-recipe-btn">
+            <i class="fa-solid fa-pen-to-square" style="color: #f5a651"></i>
+            &nbsp;Add Recipe
+          </button>
+          <p class="bookmark">
+            <i class="fa-solid fa-bookmark" style="color: #f5a651"></i>
+            &nbsp;Bookmarks
+          </p>
+        </div>
+
+        <div class="bookmarks-container">
+          <div class="bookmark-btns">
+            <button class="delete-bookmark">Delete All</button>
+            <button class="close-bookmark">Close</button>
+          </div>
+          <ul class="bookmarked-items">
+            <p class="no-bookmark">No Bookmarks ☹️</p>
+            <!-- <li class="bookmark-item" data-set="${recipe.id}">
+              <img class="bookmark-item-img" src="${recipe.imgURL}" alt="recipe img" />
+              <div class="bookmark-content">
+                <h2 class="bookmark-item-name">${recipe.title}</h2>
+                <p class="bookmark-item-publisher">${recipe.publisher}</p>
+                <i class="fa-solid fa-xmark"></i>       
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="search-results-container">
+        <h2 class="search-heading">Start searching to show some recipes</h2>
+        <p class="empty-search">
+          ☹️ currently I'm empty please search somthing
+        </p>
+        <ul class="search-results">
+          <!-- <li class="search-item" data-id="id">
+            <img class="search-item-img" src="url" alt="recipe img" />
+            <div class="search-content">
+              <h2 class="search-item-name">
+                <span>pizza</span>
+                <i class="fa-regular fa-circle-user"></i>
+                <i class="fa-solid fa-utensils"></i>
+              </h2>
+              <p class="search-item-publisher">publisher</p>
+            </div>
+          </li> -->
+        </ul>
+        <span class="spinner spinner-search">
+          <img src="./src/img/spinner.png" alt="" />
+        </span>
+      </div>
+
+      <div class="recipe-view-container">
+        <p class="empty-recipe-text">
+          🤤 Start searching your favourite recipe over 100,000+ recipes.
+        </p>
+        <!-- <div class="recipe-img">
+          <img src="./src/img/pizza.jpg" alt="" />
+          <p class="recipe-name">Pizza Hurt</p>
+          <div class="servings">
+            <p>
+              <i class="fa-regular fa-clock"></i>
+              <span>30 Minutes</span>
+            </p>
+            <p>
+              <i class="fa-solid fa-user-group"></i>
+              <span> 4 Servings </span>
+              <i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-minus"></i>
+            </p>
+            <p>
+              <span>Bookmark</span>
+              <i class="fa-regular fa-bookmark"></i>
+            </p>
+            <p>
+              <span>Own Recipe</span>
+              <i class="fa-regular fa-user"></i>&nbsp;
+            </p>
+          </div>
+        </div>
+        
+        <div class="recipe-ingredients">
+          <div class="ingredients">
+            <p>
+              <span> Recipe Ingredients &nbsp; </span>
+              <img src="./src/img/ingredients.png" alt="" />
+            </p>
+
+            <ul class="ingredients-list">
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <p>250 ml milk</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="direction">
+            <p>How To Cook It</p>
+            <p class="direction-text">
+              This recipe was carefully designed and tested by
+              <span class="recipe-publisher">The Pioneer Woman.</span> Please
+              check out directions at their website.
+            </p>
+            <button class="recipe-link">
+              Direction
+              <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Modal for own recipe -->
+
+    <div class="modal-recipe">
+      <p class="modal-heading">Add your own recipe</p>
+      <form class="modal-form">
+        <div class="recipe-data">
+          <h3 class="recipe-heading">Recipe data</h3>
+          <label>Recipe Name</label>
+          <input
+            type="text"
+            placeholder="pizza"
+            name="title"
+            required
+            value="pizza"
+          />
+          <label>Recipe URL</label>
+          <input
+            type="text"
+            placeholder="https://www.recipe/url.html"
+            name="sourceUrl"
+            required
+            value="https://www.simplyrecipes.com/recipes/homemade_pepperoni_pizza/"
+          />
+          <label>Image URL</label>
+          <input
+            placeholder="https://www.recipe/image.jpg"
+            name="imageURL"
+            required
+            value="https://img.freepik.com/free-photo/freshly-italian-pizza-with-mozzarella-cheese-slice-generative-ai_188544-12347.jpg?w=2000"
+          />
+          <label>Publisher</label>
+          <input
+            placeholder="Recipe publisher name"
+            name="publisher"
+            required
+            value="The Pizza Maker"
+          />
+          <label>Cooking time</label>
+          <input
+            placeholder="cooking time in min"
+            name="cookingTime"
+            type="number"
+            required
+            value="45"
+          />
+          <label>Servings</label>
+          <input
+            placeholder="servinga in num"
+            name="servings"
+            type="number"
+            required
+            value="5"
+          />
+        </div>
+
+        <div class="ingredients">
+          <h3 class="ingredients-heading">Ingredients</h3>
+          <label>Ingredient 1</label>
+          <input
+            class="test1"
+            type="text"
+            name="ingredient-1"
+            placeholder="1,kg,Rice"
+            value="0.5,kg,wheet"
+            required
+          />
+          <label>Ingredient 2</label>
+          <input
+            class="test2"
+            type="text"
+            name="ingredient-2"
+            placeholder="1,,Avocado'"
+            value="1,cup,sugar"
+            required
+          />
+          <label>Ingredient 3</label>
+          <input
+            class="test3"
+            type="text"
+            name="ingredient-3"
+            placeholder=",,salt"
+            value="1,ltr,milk"
+          />
+          <label>Ingredient 4</label>
+          <input
+            class="test4"
+            type="text"
+            name="ingredient-4"
+            placeholder="Format: 'Quantity,Unit,Description'"
+            value="4,large,breads"
+          />
+          <label>Ingredient 5</label>
+          <input
+            class="test5"
+            type="text"
+            name="ingredient-5"
+            placeholder="Format: 'Quantity,Unit,Description'"
+            value=""
+          />
+          <label>Ingredient 6</label>
+          <input
+            class="test6"
+            type="text"
+            name="ingredient-6"
+            placeholder="Format : 'Quantity,Unit,Description'"
+            value=""
+          />
+        </div>
+
+        <button class="upload-btn">
+          <span>Upload Recipe</span>
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </button>
+        <p class="instructions">
+          <span
+            ><i class="fa-solid fa-circle-exclamation"></i> Atleast 2
+            ingredients required
+          </span>
+          <span
+            ><i class="fa-solid fa-circle-exclamation"></i> Please follow the
+            format
+          </span>
+          <span
+            ><i class="fa-solid fa-circle-exclamation"></i> URL should be valid
+            one
+          </span>
+        </p>
+
+        <!-- sucess Msg with Spinner -->
+        <div class="success-msg">
+          <p>New Recipe Added Sucessfully 😍</p>
+          <span class="spinner spinner-upload">
+            <img src="./src/img/spinner.png" alt="" />
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <!-- overlay for modal -->
+    <div class="overlay"></div>
+  </body>
+</html>
